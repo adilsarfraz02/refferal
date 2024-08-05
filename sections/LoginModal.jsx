@@ -3,6 +3,7 @@ import React from "react";
 import { Modal, ModalContent, ModalHeader, ModalBody, Button as NextUIButton } from "@nextui-org/react";
 import { FcGoogle } from "react-icons/fc";
 import { signIn } from 'next-auth/react';
+import Link from "next/link";
 
 export default function LoginModal({ isOpen, onOpenChange, Button }) {
   return (
@@ -10,12 +11,12 @@ export default function LoginModal({ isOpen, onOpenChange, Button }) {
       {Button}
       <Modal placement="center" backdrop="opaque"
         isOpen={isOpen} onOpenChange={onOpenChange}>
-        <ModalContent>
+        <ModalContent className="bg-black/80 backdrop-blur text-white">
           {(onClose) => (
             <>
               <ModalHeader className="flex text-center py-10 flex-col gap-2">
                 <h2 className="text-2xl font-bold">Welcome to Our Referral Program</h2>
-                <p className="text-sm text-gray-500">Create an account or log in to start earning rewards by referring your friends.</p>
+                <p className="text-sm text-gray-300">Create an account or log in to start earning rewards by referring your friends.</p>
               </ModalHeader>
               <ModalBody>
                 <NextUIButton 
@@ -25,12 +26,15 @@ export default function LoginModal({ isOpen, onOpenChange, Button }) {
                   <FcGoogle size={22} />
                   Continue with Google
                 </NextUIButton>
-                <div className="mt-10 text-center text-sm text-gray-500">
-                  By continuing, you agree to our <a href="#" className="text-blue-500 hover:underline">Terms of Service</a> and <a href="#" className="text-blue-500 hover:underline">Privacy Policy</a>.
+                <div className="mt-10 text-center text-sm text-gray-300">
+                  By continuing, you agree to our
+                  {""}
+                  <Link href="/terms" className="text-blue-500 hover:underline">Terms of Service</Link>
+                  { " "}and <Link href="/privacy" className="text-blue-500 hover:underline">Privacy Policy</Link>.
                 </div>
                 <NextUIButton 
                   variant=""
-                  className="underline hover:text-black w-fit mx-auto underline-offset-2 text-gray-500" 
+                  className="underline hover:text-white w-fit mx-auto underline-offset-2 text-gray-500" 
                   onClick={onClose}
                 >
                   Go Back

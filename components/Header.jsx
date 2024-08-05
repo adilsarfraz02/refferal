@@ -22,9 +22,6 @@ export default function Navbar() {
               Refer a friend
             </Link>
             <Link className="text-sm font-medium hover:underline" href="#">
-              
-            </Link>
-            <Link className="text-sm font-medium hover:underline" href="#">
               About
             </Link>
             <Link className="text-sm font-medium hover:underline" href="#">
