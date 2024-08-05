@@ -8,13 +8,18 @@ import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import Features from './FeaturesSec';
 import ImageSec from './ImageSec';
-
+import { motion } from 'framer-motion';
 export default function HeroSection() {
   const { status } = useSession();
   const { isOpen, onOpenChange } = useDisclosure();
 
   return (
-    <div className='flex flex-col'>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+      }}
+      className='flex flex-col'>
       <main className='flex-1'>
         <section className=' bg-gradient-to-br h-screen from-black to-zinc-900 flex flex-col items-center justify-center text-center text-primary-foreground'>
           <div className='container px-4 md:px-6 pt-14'>
@@ -55,6 +60,6 @@ export default function HeroSection() {
         <Features />
         <ImageSec />
       </main>
-    </div>
+    </motion.div>
   );
 }
